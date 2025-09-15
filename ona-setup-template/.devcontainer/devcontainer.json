@@ -1,0 +1,261 @@
+{
+  "name": "Laravel + Frontend with Ona",
+  "dockerFile": "Dockerfile",
+  "context": "..",
+  
+  // Configure tool-specific properties
+  "customizations": {
+    "vscode": {
+      "settings": {
+        // Editor settings
+        "editor.fontSize": 14,
+        "editor.fontFamily": "'Fira Code', 'Cascadia Code', 'JetBrains Mono', Consolas, monospace",
+        "editor.fontLigatures": true,
+        "editor.tabSize": 4,
+        "editor.insertSpaces": true,
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+          "source.fixAll": "explicit",
+          "source.organizeImports": "explicit"
+        },
+        
+        // PHP settings
+        "php.validate.enable": true,
+        "php.suggest.basic": false,
+        "[php]": {
+          "editor.defaultFormatter": "bmewburn.vscode-intelephense-client",
+          "editor.tabSize": 4
+        },
+        
+        // JavaScript/TypeScript settings
+        "[javascript]": {
+          "editor.defaultFormatter": "esbenp.prettier-vscode",
+          "editor.tabSize": 2
+        },
+        "[typescript]": {
+          "editor.defaultFormatter": "esbenp.prettier-vscode",
+          "editor.tabSize": 2
+        },
+        "[vue]": {
+          "editor.defaultFormatter": "Vue.volar",
+          "editor.tabSize": 2
+        },
+        
+        // Laravel Blade settings
+        "[blade]": {
+          "editor.defaultFormatter": "shufo.vscode-blade-formatter",
+          "editor.tabSize": 4
+        },
+        
+        // File associations
+        "files.associations": {
+          "*.blade.php": "blade",
+          "*.env.example": "dotenv",
+          "*.env.local": "dotenv"
+        },
+        
+        // Terminal settings
+        "terminal.integrated.defaultProfile.linux": "bash",
+        "terminal.integrated.profiles.linux": {
+          "bash": {
+            "path": "/bin/bash",
+            "args": ["-l"]
+          }
+        },
+        
+        // Git settings
+        "git.enableSmartCommit": true,
+        "git.confirmSync": false,
+        "git.autofetch": true,
+        
+        // Exclude patterns
+        "files.exclude": {
+          "**/node_modules": true,
+          "**/vendor": true,
+          "**/.git": true,
+          "**/storage/logs": true,
+          "**/storage/framework/cache": true,
+          "**/storage/framework/sessions": true,
+          "**/storage/framework/views": true,
+          "**/bootstrap/cache": true
+        },
+        
+        // Search exclude
+        "search.exclude": {
+          "**/node_modules": true,
+          "**/vendor": true,
+          "**/storage": true,
+          "**/bootstrap/cache": true,
+          "**/*.log": true
+        },
+        
+        // Emmet
+        "emmet.includeLanguages": {
+          "blade": "html",
+          "vue-html": "html"
+        }
+      },
+      
+      "extensions": [
+        // PHP Development
+        "bmewburn.vscode-intelephense-client",
+        "xdebug.php-debug",
+        "devsense.phptools-vscode",
+        
+        // Laravel Development
+        "onecentlin.laravel-blade",
+        "shufo.vscode-blade-formatter",
+        "codingyu.laravel-goto-view",
+        "amiralizadeh9480.laravel-extra-intellisense",
+        "ryannaddy.laravel-artisan",
+        
+        // Vue.js Development
+        "Vue.volar",
+        "Vue.vscode-typescript-vue-plugin",
+        "hollowtree.vue-snippets",
+        
+        // React Development (alternative)
+        "ms-vscode.vscode-typescript-next",
+        "bradlc.vscode-tailwindcss",
+        
+        // Code Quality & Formatting
+        "esbenp.prettier-vscode",
+        "dbaeumer.vscode-eslint",
+        "ms-vscode.vscode-json",
+        "editorconfig.editorconfig",
+        
+        // Git & Version Control
+        "eamodio.gitlens",
+        "mhutchie.git-graph",
+        "donjayamanne.githistory",
+        
+        // Database
+        "mtxr.sqltools",
+        "mtxr.sqltools-driver-mysql",
+        "cweijan.vscode-mysql-client2",
+        
+        // Docker & Containers
+        "ms-azuretools.vscode-docker",
+        
+        // Productivity & UI
+        "pkief.material-icon-theme",
+        "zhuangtongfa.material-theme",
+        
+        // Code Navigation & Search
+        "christian-kohler.path-intellisense",
+        "ms-vscode.references-view",
+        "alefragnani.bookmarks",
+        
+        // Testing
+        "recca0120.vscode-phpunit",
+        
+        // API Development
+        "humao.rest-client",
+        "rangav.vscode-thunder-client",
+        
+        // Documentation
+        "yzhang.markdown-all-in-one",
+        "davidanson.vscode-markdownlint",
+        
+        // Utilities
+        "streetsidesoftware.code-spell-checker",
+        "gruntfuggly.todo-tree",
+        "aaron-bond.better-comments",
+        "wayou.vscode-todo-highlight",
+        
+        // Environment
+        "ms-dotnettools.vscode-dotnet-runtime",
+        "timonwong.shellcheck"
+      ]
+    }
+  },
+  
+  // Use 'forwardPorts' to make a list of ports inside the container available locally
+  "forwardPorts": [
+    8000,  // Laravel development server
+    3000,  // Vite development server
+    5173,  // Vite alternative port
+    3306,  // MySQL
+    6379,  // Redis
+    8025   // Mailhog
+  ],
+  
+  // Port attributes
+  "portsAttributes": {
+    "8000": {
+      "label": "Laravel Server",
+      "onAutoForward": "notify"
+    },
+    "3000": {
+      "label": "Vite Dev Server",
+      "onAutoForward": "notify"
+    },
+    "5173": {
+      "label": "Vite Alt Port",
+      "onAutoForward": "ignore"
+    },
+    "3306": {
+      "label": "MySQL",
+      "onAutoForward": "ignore"
+    },
+    "6379": {
+      "label": "Redis",
+      "onAutoForward": "ignore"
+    },
+    "8025": {
+      "label": "Mailhog",
+      "onAutoForward": "ignore"
+    }
+  },
+  
+  // Features to add to the dev container
+  "features": {
+    "ghcr.io/devcontainers/features/git:1": {
+      "version": "latest",
+      "ppa": true
+    },
+    "ghcr.io/devcontainers/features/github-cli:1": {
+      "version": "latest"
+    },
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {
+      "version": "latest",
+      "enableNonRootDocker": "true"
+    }
+  },
+  
+  // Use 'postCreateCommand' to run commands after the container is created
+  "postCreateCommand": ".devcontainer/setup.sh",
+  
+  // Use 'postStartCommand' to run commands after the container starts
+  "postStartCommand": "echo 'Container started! Run ./setup.sh to initialize your Laravel project.'",
+  
+  // Comment out to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root
+  "remoteUser": "vscode",
+  
+  // Container environment variables
+  "containerEnv": {
+    "TZ": "UTC",
+    "DEBIAN_FRONTEND": "noninteractive",
+    "COMPOSER_ALLOW_SUPERUSER": "1",
+    "COMPOSER_NO_INTERACTION": "1"
+  },
+  
+  // Mount the parent directory to access project files
+  "mounts": [
+    "source=${localWorkspaceFolder},target=/workspaces/${localWorkspaceFolderBasename},type=bind,consistency=cached"
+  ],
+  
+  // Override the default command
+  "overrideCommand": false,
+  
+  // Lifecycle scripts
+  "initializeCommand": "echo 'Initializing Ona Laravel development environment...'",
+  "onCreateCommand": "echo 'Container created successfully!'",
+  
+  // Development container metadata
+  "metadata": {
+    "description": "Laravel + Frontend development environment optimized for Ona AI agent integration",
+    "version": "1.0.0",
+    "author": "Ona Development Team"
+  }
+}

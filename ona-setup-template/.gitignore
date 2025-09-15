@@ -1,0 +1,186 @@
+# Ona Laravel Project .gitignore
+
+# Laravel
+/node_modules
+/public/build
+/public/hot
+/public/storage
+/storage/*.key
+/vendor
+.env
+.env.backup
+.env.production
+.phpunit.result.cache
+Homestead.json
+Homestead.yaml
+auth.json
+npm-debug.log
+yarn-error.log
+/.fleet
+/.idea
+/.vscode
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# Editor files
+*~
+*.swp
+*.swo
+*.sublime-project
+*.sublime-workspace
+.atom/
+.brackets.json
+
+# Temporary files
+*.tmp
+*.temp
+*.log
+*.cache
+.temp/
+.tmp/
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.npm
+.yarn-integrity
+.pnp.*
+.yarn/
+
+# PHP
+vendor/
+composer.phar
+.env.local
+.env.*.local
+
+# Laravel specific
+storage/logs/
+storage/framework/cache/
+storage/framework/sessions/
+storage/framework/views/
+bootstrap/cache/
+.phpunit.result.cache
+
+# Database
+*.sqlite
+*.db
+
+# Build outputs
+dist/
+build/
+out/
+.next/
+.nuxt/
+.output/
+
+# Coverage reports
+coverage/
+.nyc_output/
+*.lcov
+
+# IDE and editor configs
+.editorconfig
+.eslintcache
+.stylelintcache
+
+# System files
+*.pid
+*.seed
+*.pid.lock
+
+# Runtime data
+pids/
+logs/
+*.log
+
+# Dependency directories
+jspm_packages/
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Optional REPL history
+.node_repl_history
+
+# Output of 'npm pack'
+*.tgz
+
+# Yarn Integrity file
+.yarn-integrity
+
+# parcel-bundler cache (https://parceljs.org/)
+.cache
+.parcel-cache
+
+# next.js build output
+.next
+
+# nuxt.js build output
+.nuxt
+
+# vuepress build output
+.vuepress/dist
+
+# Serverless directories
+.serverless
+
+# FuseBox cache
+.fusebox/
+
+# DynamoDB Local files
+.dynamodb/
+
+# TernJS port file
+.tern-port
+
+# Stores VSCode versions used for testing VSCode extensions
+.vscode-test
+
+# Deployment files
+deployment-info.json
+backup-*/
+deploy-*.tar.gz
+
+# Ona specific
+ona.log
+debug.log
+error.log
+access.log
+
+# Local development
+.local/
+.cache/
+.config/
+
+# Testing
+.phpunit.cache
+pest.log
+
+# Security
+.env.keys
+secrets.json
+*.pem
+*.key
+*.crt
+
+# Backup files
+*.backup
+*.bak
+*~
+
+# Temporary build files
+*.build
+*.dist
